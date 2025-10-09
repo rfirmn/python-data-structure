@@ -236,40 +236,43 @@ Stack adalah ADT yang mengikuti prinsip LIFO (Last-In, First-Out) — elemen yan
 Analogi sederhana: tumpukan piring. Piring yang terakhir diletakkan di atas akan menjadi yang pertama diambil.
 
 ```python
-class Queue:
+class Stack:
 def __init__(self, max_size):
 self.max_size = max_size
 self.items = []
 
 
 @staticmethod
-def create_queue(max_size: int):
-return Queue(max_size)
+def create_stack(max_size: int):
+return Stack(max_size)
 
 
-def enqueue(self, item):
+# === Operasi Utama ===
+def push(self, item):
 if self.is_full():
-print("Queue penuh!")
+print("Stack penuh! Tidak bisa menambahkan data.")
 else:
 self.items.append(item)
-print(f"Enqueue: {item}")
+print(f"Push: {item}")
 
 
-def dequeue(self):
+def pop(self):
 if self.is_empty():
-print("Queue kosong!")
+print("Stack kosong! Tidak bisa menghapus data.")
 else:
-removed = self.items.pop(0)
-print(f"Dequeue: {removed}")
+removed = self.items.pop()
+print(f"Pop: {removed}")
 return removed
 
 
+# === Selector ===
 def peek(self):
 if not self.is_empty():
-print(f"Front: {self.items[0]}")
-return self.items[0]
+print(f"Elemen teratas: {self.items[-1]}")
+return self.items[-1]
 
 
+# === Validator ===
 def is_empty(self):
 return len(self.items) == 0
 
@@ -278,16 +281,21 @@ def is_full(self):
 return len(self.items) >= self.max_size
 
 
+# === Display ===
 def display(self):
-print("Isi Queue:", self.items if self.items else "Queue kosong")
+if self.is_empty():
+print("Stack kosong.")
+else:
+print("Isi Stack (atas ke bawah):", list(reversed(self.items)))
 
 
 # Contoh penggunaan
-antrian = Queue.create_queue(5)
-antrian.enqueue("Andi")
-antrian.enqueue("Budi")
-antrian.enqueue("Citra")
-antrian.display()
-antrian.dequeue()
-antrian.display()
+stack = Stack.create_stack(5)
+stack.push("A")
+stack.push("B")
+stack.push("C")
+stack.display()
+stack.peek()
+stack.pop()
+stack.display()
 ```
