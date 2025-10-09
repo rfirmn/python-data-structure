@@ -81,7 +81,7 @@ Anda, sebagai pengguna, hanya peduli dengan operasi remote (menaikkan volume). A
 
 ## 3.3 Contoh Implementasi ADT di Python
 ---
-### Class and Function
+### Contoh 1: Class and Function
 
 ```python
 class Mahasiswa:
@@ -111,7 +111,7 @@ def rata_rata(mhs: Mahasiswa) -> float:
 
 ```
 ---
-### Queue
+### Contoh 2: Queue
 **Queue** (Antrian) adalah ADT koleksi terurut di mana penambahan elemen baru (operasi `enqueue` atau `insert`) hanya terjadi di satu ujung yang disebut Rear (Belakang), dan penghapusan elemen (operasi `dequeue` atau `remove`) hanya terjadi di ujung yang berlawanan, yang disebut Front (Depan). Queue mengikuti prinsip FIFO (First-In, First-Out)—elemen yang pertama masuk adalah yang pertama keluar.
 
 ```python
@@ -194,4 +194,70 @@ antrian.enqueue("Fajar")  # melebihi kapasitas
 
 antrian.display()
 
+```
+### Contoh 3: Stack
+
+Stack adalah ADT yang mengikuti prinsip LIFO (Last-In, First-Out) — elemen yang terakhir dimasukkan akan menjadi yang pertama keluar. Stack memiliki dua operasi utama:
+
+`push()` → menambahkan elemen ke puncak stack.
+
+`pop()` → menghapus elemen dari puncak stack.
+
+Analogi sederhana: tumpukan piring. Piring yang terakhir diletakkan di atas akan menjadi yang pertama diambil.
+
+```python
+class Queue:
+def __init__(self, max_size):
+self.max_size = max_size
+self.items = []
+
+
+@staticmethod
+def create_queue(max_size: int):
+return Queue(max_size)
+
+
+def enqueue(self, item):
+if self.is_full():
+print("Queue penuh!")
+else:
+self.items.append(item)
+print(f"Enqueue: {item}")
+
+
+def dequeue(self):
+if self.is_empty():
+print("Queue kosong!")
+else:
+removed = self.items.pop(0)
+print(f"Dequeue: {removed}")
+return removed
+
+
+def peek(self):
+if not self.is_empty():
+print(f"Front: {self.items[0]}")
+return self.items[0]
+
+
+def is_empty(self):
+return len(self.items) == 0
+
+
+def is_full(self):
+return len(self.items) >= self.max_size
+
+
+def display(self):
+print("Isi Queue:", self.items if self.items else "Queue kosong")
+
+
+# Contoh penggunaan
+antrian = Queue.create_queue(5)
+antrian.enqueue("Andi")
+antrian.enqueue("Budi")
+antrian.enqueue("Citra")
+antrian.display()
+antrian.dequeue()
+antrian.display()
 ```
