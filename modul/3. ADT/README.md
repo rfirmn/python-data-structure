@@ -237,65 +237,72 @@ Analogi sederhana: tumpukan piring. Piring yang terakhir diletakkan di atas akan
 
 ```python
 class Stack:
-def __init__(self, max_size):
-self.max_size = max_size
-self.items = []
+    def __init__(self, max_size):
+        """Konstruktor: membuat stack kosong dengan ukuran maksimum tertentu"""
+        self.max_size = max_size
+        self.items = []
+
+    # === Konstruktor / Kreator ===
+    @staticmethod
+    def create_stack(max_size: int):
+        """Membuat objek Stack baru"""
+        return Stack(max_size)
+
+    # === Operasi Utama ===
+    def push(self, item):
+        """Menambahkan elemen ke atas stack"""
+        if self.is_full():
+            print("Stack penuh! Tidak bisa menambahkan data.")
+        else:
+            self.items.append(item)
+            print(f"Push: {item}")
+
+    def pop(self):
+        """Menghapus elemen dari atas stack"""
+        if self.is_empty():
+            print("Stack kosong! Tidak bisa menghapus data.")
+        else:
+            removed = self.items.pop()
+            print(f"Pop: {removed}")
+            return removed
+
+    # === Selector ===
+    def peek(self):
+        """Melihat elemen teratas tanpa menghapusnya"""
+        if not self.is_empty():
+            print(f"Elemen teratas: {self.items[-1]}")
+            return self.items[-1]
+        else:
+            print("Stack kosong!")
+
+    # === Validator ===
+    def is_empty(self):
+        """Mengembalikan True jika stack kosong"""
+        return len(self.items) == 0
+
+    def is_full(self):
+        """Mengembalikan True jika stack penuh"""
+        return len(self.items) >= self.max_size
+
+    # === Display ===
+    def display(self):
+        """Menampilkan isi stack dari atas ke bawah"""
+        if self.is_empty():
+            print("Stack kosong.")
+        else:
+            print("Isi Stack (atas ke bawah):", list(reversed(self.items)))
 
 
-@staticmethod
-def create_stack(max_size: int):
-return Stack(max_size)
-
-
-# === Operasi Utama ===
-def push(self, item):
-if self.is_full():
-print("Stack penuh! Tidak bisa menambahkan data.")
-else:
-self.items.append(item)
-print(f"Push: {item}")
-
-
-def pop(self):
-if self.is_empty():
-print("Stack kosong! Tidak bisa menghapus data.")
-else:
-removed = self.items.pop()
-print(f"Pop: {removed}")
-return removed
-
-
-# === Selector ===
-def peek(self):
-if not self.is_empty():
-print(f"Elemen teratas: {self.items[-1]}")
-return self.items[-1]
-
-
-# === Validator ===
-def is_empty(self):
-return len(self.items) == 0
-
-
-def is_full(self):
-return len(self.items) >= self.max_size
-
-
-# === Display ===
-def display(self):
-if self.is_empty():
-print("Stack kosong.")
-else:
-print("Isi Stack (atas ke bawah):", list(reversed(self.items)))
-
-
-# Contoh penggunaan
+# === Contoh Penggunaan ===
 stack = Stack.create_stack(5)
 stack.push("A")
 stack.push("B")
 stack.push("C")
+
 stack.display()
 stack.peek()
+
 stack.pop()
 stack.display()
+
 ```
