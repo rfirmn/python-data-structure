@@ -109,6 +109,30 @@ def tampil_mahasiswa(mhs: Mahasiswa):
 def rata_rata(mhs: Mahasiswa) -> float:
     return (mhs.nilai1 + mhs.nilai2) / 2
 
+from adt_mahasiswa import Mahasiswa
+
+# Membuat objek Mahasiswa
+mhs1 = Mahasiswa("Budi", 20, 85.5)
+
+# Menampilkan data mahasiswa
+print("=== Data Mahasiswa ===")
+mhs1.tampilkan_data()
+
+# Mengecek kelulusan
+if mhs1.is_lulus():
+    print("Status: Lulus")
+else:
+    print("Status: Tidak Lulus")
+
+print("\n--- Mengubah nilai mahasiswa ---")
+mhs1.nilai = 55.0
+
+# Menampilkan data setelah diubah
+mhs1.tampilkan_data()
+print("Status:", "Lulus" if mhs1.is_lulus() else "Tidak Lulus")
+
+# Mengambil data dalam bentuk dictionary (abstraksi)
+print("\nDictionary Data Mahasiswa:", mhs1.get_data())
 ```
 ---
 ### Contoh 2: Queue
