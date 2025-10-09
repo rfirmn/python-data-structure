@@ -145,7 +145,7 @@ if __name__ == "__main__":
 **Queue** (Antrian) adalah ADT koleksi terurut di mana penambahan elemen baru (operasi `enqueue` atau `insert`) hanya terjadi di satu ujung yang disebut Rear (Belakang), dan penghapusan elemen (operasi `dequeue` atau `remove`) hanya terjadi di ujung yang berlawanan, yang disebut Front (Depan). Queue mengikuti prinsip FIFO (First-In, First-Out)—elemen yang pertama masuk adalah yang pertama keluar.
 
 ```python
-# queue.py
+# abstrak.py
 class Queue:
     def __init__(self, max_size):
         """Konstruktor: membuat queue kosong dengan ukuran maksimum tertentu"""
