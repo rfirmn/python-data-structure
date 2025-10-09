@@ -85,54 +85,60 @@ Anda, sebagai pengguna, hanya peduli dengan operasi remote (menaikkan volume). A
 
 ```python
 class Mahasiswa:
-    def __init__(self, nim, nilai1, nilai2):
-        self.nim = nim
-        self.nilai1 = nilai1
-        self.nilai2 = nilai2
+    def __init__(self, nama: str, usia: int, nilai: float):
+        # Atribut bersifat private (tidak boleh diakses langsung)
+        self.__nama = nama
+        self.__usia = usia
+        self.__nilai = nilai
 
-# === Konstruktor ===
-def create_mahasiswa(nim: str, nilai1: int, nilai2: int) -> Mahasiswa:
-    """Membuat objek Mahasiswa baru"""
-    return Mahasiswa(nim, nilai1, nilai2)
+    # ------------- OPERASI PADA ADT ----------------
 
-# === Input/Output ===
-def input_mahasiswa() -> Mahasiswa:
-    nim = input("Masukkan NIM: ")
-    nilai1 = int(input("Masukkan nilai 1: "))
-    nilai2 = int(input("Masukkan nilai 2: "))
-    return create_mahasiswa(nim, nilai1, nilai2)
+    def set_data(self, nama: str, usia: int, nilai: float):
+        """Mengatur ulang data mahasiswa."""
+        self.__nama = nama
+        self.__usia = usia
+        self.__nilai = nilai
 
-def tampil_mahasiswa(mhs: Mahasiswa):
-    print(f"NIM: {mhs.nim}, Nilai1: {mhs.nilai1}, Nilai2: {mhs.nilai2}")
+    def get_data(self):
+        """Mengembalikan seluruh data mahasiswa dalam bentuk dictionary."""
+        return {
+            "nama": self.__nama,
+            "usia": self.__usia,
+            "nilai": self.__nilai
+        }
 
-# === Fungsi Tambahan ===
-def rata_rata(mhs: Mahasiswa) -> float:
-    return (mhs.nilai1 + mhs.nilai2) / 2
+    def tampilkan_data(self):
+        """Menampilkan data mahasiswa"""
+        print(f"Nama  : {self.__nama}")
+        print(f"Usia  : {self.__usia} tahun")
+        print(f"Nilai : {self.__nilai}")
 
-from adt_mahasiswa import Mahasiswa
+    def is_lulus(self, passing_grade=60):
+        """Mengecek apakah mahasiswa lulus berdasarkan nilai."""
+        return self.__nilai >= passing_grade
 
-# Membuat objek Mahasiswa
-mhs1 = Mahasiswa("Budi", 20, 85.5)
+if __name__ == "__main__":
+    # Membuat objek Mahasiswa
+    mhs1 = Mahasiswa("Budi", 20, 85.5)
 
-# Menampilkan data mahasiswa
-print("=== Data Mahasiswa ===")
-mhs1.tampilkan_data()
+    # Menampilkan data mahasiswa
+    print("=== Data Mahasiswa ===")
+    mhs1.tampilkan_data()
 
-# Mengecek kelulusan
-if mhs1.is_lulus():
-    print("Status: Lulus")
-else:
-    print("Status: Tidak Lulus")
+    # Mengecek kelulusan
+    if mhs1.is_lulus():
+        print("Status: Lulus")
+    else:
+        print("Status: Tidak Lulus")
 
-print("\n--- Mengubah nilai mahasiswa ---")
-mhs1.nilai = 55.0
+    print("\n--- Mengubah data mahasiswa ---")
+    mhs1.set_data("Budi", 20, 55.0)
+    # Menampilkan data setelah diubah
+    mhs1.tampilkan_data()
+    print("Status:", "Lulus" if mhs1.is_lulus() else "Tidak Lulus")
 
-# Menampilkan data setelah diubah
-mhs1.tampilkan_data()
-print("Status:", "Lulus" if mhs1.is_lulus() else "Tidak Lulus")
-
-# Mengambil data dalam bentuk dictionary (abstraksi)
-print("\nDictionary Data Mahasiswa:", mhs1.get_data())
+    # Mengambil data dalam bentuk dictionary (abstraksi)
+    print("\nDictionary Data Mahasiswa:", mhs1.get_data())
 ```
 ---
 ### Contoh 2: Queue
