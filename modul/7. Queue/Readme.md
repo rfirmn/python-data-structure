@@ -1,4 +1,4 @@
-# Belajar Queue di Python
+# Queue
 
 ## Deskripsi Modul
 
