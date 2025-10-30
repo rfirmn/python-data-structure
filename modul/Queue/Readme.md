@@ -30,6 +30,8 @@ Setelah mengikuti modul ini, peserta akan:
 
 ---
 
+![Queue](https://media.geeksforgeeks.org/wp-content/uploads/20220816162225/Queue.png)
+
 ## Operasi Dasar Queue
 
 ### 1. Enqueue
