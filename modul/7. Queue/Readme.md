@@ -215,6 +215,61 @@ dq.pop()
 
 ---
 
+## Queue Code
+
+```python
+# Implementasi Lengkap Fungsi Queue menggunakan list
+class QueueList:
+    def __init__(self, max_size=None):
+        self.queue = []
+        self.max_size = max_size
+
+    def enqueue(self, item):
+        if self.max_size and len(self.queue) >= self.max_size:
+            print("Queue penuh!")
+            return
+        self.queue.append(item)
+        print(f"{item} ditambahkan ke queue")
+
+    def dequeue(self):
+        if self.is_empty():
+            print("Queue kosong!")
+            return None
+        item = self.queue.pop(0)
+        print(f"{item} dikeluarkan dari queue")
+        return item
+
+    def peek(self):
+        if self.is_empty():
+            print("Queue kosong!")
+            return None
+        return self.queue[0]
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def is_full(self):
+        if self.max_size:
+            return len(self.queue) >= self.max_size
+        return False
+
+    def size(self):
+        return len(self.queue)
+
+# Contoh Penggunaan
+q = QueueList(max_size=5)
+q.enqueue(10)
+q.enqueue(20)
+q.enqueue(30)
+print(f"Elemen depan queue: {q.peek()}")
+q.dequeue()
+q.dequeue()
+print(f"Apakah queue kosong? {q.is_empty()}")
+print(f"Ukuran queue: {q.size()}")
+
+```
+
+
 ## Contoh Aplikasi Queue
 
 ### 1. Simulasi Antrian Kasir
@@ -259,15 +314,6 @@ while tasks:
     current = tasks.popleft()
     print(f'Processing {current}')
 ```
-
----
-
-## Latihan / Tugas
-
-1. Implementasikan queue menggunakan list, deque, dan linked list. Bandingkan performanya.
-2. Buat simulasi antrian kasir dengan 5 orang.
-3. Buat priority queue untuk job dengan prioritas berbeda.
-4. Bandingkan waktu enqueue dan dequeue antara list vs deque untuk 1000 elemen.
 
 ---
 
