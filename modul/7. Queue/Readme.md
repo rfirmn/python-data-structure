@@ -323,25 +323,29 @@ print(f"Ukuran queue: {pq.size()}")
 ## Queue Priority (without heapq)
 
 ```python
-# Implementasi Priority Queue di Python
-import heapq
-
-class PriorityQueue:
+# Implementasi Priority Queue tanpa menggunakan heapq
+class PriorityQueueManual:
     def __init__(self):
-        self.queue = []  # menggunakan heap (min-heap secara default)
-        self.index = 0   # digunakan untuk menjaga urutan elemen dengan prioritas yang sama
+        self.queue = []  # list berisi tuple (priority, item)
 
     def enqueue(self, priority, item):
-        # Gunakan tuple (priority, index, item) agar stabil jika prioritas sama
-        heapq.heappush(self.queue, (priority, self.index, item))
-        self.index += 1
+        # Tambahkan elemen ke dalam list
+        self.queue.append((priority, item))
         print(f"Item '{item}' dengan prioritas {priority} ditambahkan ke queue")
 
     def dequeue(self):
         if self.is_empty():
             print("Queue kosong!")
             return None
-        priority, index, item = heapq.heappop(self.queue)
+
+        # Cari elemen dengan prioritas tertinggi (angka prioritas terkecil)
+        highest_priority_index = 0
+        for i in range(1, len(self.queue)):
+            if self.queue[i][0] < self.queue[highest_priority_index][0]:
+                highest_priority_index = i
+
+        # Keluarkan elemen dengan prioritas tertinggi
+        priority, item = self.queue.pop(highest_priority_index)
         print(f"Item '{item}' dengan prioritas {priority} dikeluarkan dari queue")
         return item
 
@@ -349,8 +353,10 @@ class PriorityQueue:
         if self.is_empty():
             print("Queue kosong!")
             return None
-        priority, index, item = self.queue[0]
-        return item
+
+        # Temukan item dengan prioritas tertinggi tanpa menghapus
+        highest_priority = min(self.queue, key=lambda x: x[0])
+        return highest_priority[1]
 
     def is_empty(self):
         return len(self.queue) == 0
@@ -359,7 +365,7 @@ class PriorityQueue:
         return len(self.queue)
 
 # Contoh Penggunaan
-pq = PriorityQueue()
+pq = PriorityQueueManual()
 pq.enqueue(3, 'Low Priority Task')
 pq.enqueue(1, 'High Priority Task')
 pq.enqueue(2, 'Medium Priority Task')
@@ -369,6 +375,7 @@ pq.dequeue()
 pq.dequeue()
 print(f"Apakah queue kosong? {pq.is_empty()}")
 print(f"Ukuran queue: {pq.size()}")
+
 ```
 
 
