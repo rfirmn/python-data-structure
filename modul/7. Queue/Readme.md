@@ -269,6 +269,108 @@ print(f"Ukuran queue: {q.size()}")
 
 ```
 
+## Queue Priority (with heapq)
+
+```python
+# Implementasi Priority Queue di Python
+import heapq
+
+class PriorityQueue:
+    def __init__(self):
+        self.queue = []  # menggunakan heap (min-heap secara default)
+        self.index = 0   # digunakan untuk menjaga urutan elemen dengan prioritas yang sama
+
+    def enqueue(self, priority, item):
+        # Gunakan tuple (priority, index, item) agar stabil jika prioritas sama
+        heapq.heappush(self.queue, (priority, self.index, item))
+        self.index += 1
+        print(f"Item '{item}' dengan prioritas {priority} ditambahkan ke queue")
+
+    def dequeue(self):
+        if self.is_empty():
+            print("Queue kosong!")
+            return None
+        priority, index, item = heapq.heappop(self.queue)
+        print(f"Item '{item}' dengan prioritas {priority} dikeluarkan dari queue")
+        return item
+
+    def peek(self):
+        if self.is_empty():
+            print("Queue kosong!")
+            return None
+        priority, index, item = self.queue[0]
+        return item
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def size(self):
+        return len(self.queue)
+
+# Contoh Penggunaan
+pq = PriorityQueue()
+pq.enqueue(3, 'Low Priority Task')
+pq.enqueue(1, 'High Priority Task')
+pq.enqueue(2, 'Medium Priority Task')
+
+print(f"Elemen dengan prioritas tertinggi: {pq.peek()}")
+pq.dequeue()
+pq.dequeue()
+print(f"Apakah queue kosong? {pq.is_empty()}")
+print(f"Ukuran queue: {pq.size()}")
+```
+
+## Queue Priority (without heapq)
+
+```python
+# Implementasi Priority Queue di Python
+import heapq
+
+class PriorityQueue:
+    def __init__(self):
+        self.queue = []  # menggunakan heap (min-heap secara default)
+        self.index = 0   # digunakan untuk menjaga urutan elemen dengan prioritas yang sama
+
+    def enqueue(self, priority, item):
+        # Gunakan tuple (priority, index, item) agar stabil jika prioritas sama
+        heapq.heappush(self.queue, (priority, self.index, item))
+        self.index += 1
+        print(f"Item '{item}' dengan prioritas {priority} ditambahkan ke queue")
+
+    def dequeue(self):
+        if self.is_empty():
+            print("Queue kosong!")
+            return None
+        priority, index, item = heapq.heappop(self.queue)
+        print(f"Item '{item}' dengan prioritas {priority} dikeluarkan dari queue")
+        return item
+
+    def peek(self):
+        if self.is_empty():
+            print("Queue kosong!")
+            return None
+        priority, index, item = self.queue[0]
+        return item
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def size(self):
+        return len(self.queue)
+
+# Contoh Penggunaan
+pq = PriorityQueue()
+pq.enqueue(3, 'Low Priority Task')
+pq.enqueue(1, 'High Priority Task')
+pq.enqueue(2, 'Medium Priority Task')
+
+print(f"Elemen dengan prioritas tertinggi: {pq.peek()}")
+pq.dequeue()
+pq.dequeue()
+print(f"Apakah queue kosong? {pq.is_empty()}")
+print(f"Ukuran queue: {pq.size()}")
+```
+
 
 ## Contoh Aplikasi Queue
 
