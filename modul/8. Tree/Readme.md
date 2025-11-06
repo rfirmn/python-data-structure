@@ -154,7 +154,7 @@ class BST:
 ## **10.6 Program Utama (`main.py`)**
 
 ```python
-from bstree import BST
+#from bstree import BST
 
 bst = BST()
 values = [1, 2, 6, 4, 5, 3, 6, 7]
