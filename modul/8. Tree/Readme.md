@@ -1,6 +1,6 @@
 # Modul Praktikum Struktur Data
 
-## **Modul 10: Tree (Binary Tree & Binary Search Tree)**
+## **Modul 8: Tree (Binary Tree & Binary Search Tree)**
 
 ![tree](https://media.geeksforgeeks.org/wp-content/uploads/20240811023816/Introduction-to-Binary-Tree.webp)
 
