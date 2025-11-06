@@ -2,6 +2,8 @@
 
 ## **Modul 10: Tree (Binary Tree & Binary Search Tree)**
 
+![tree]('https://media.geeksforgeeks.org/wp-content/uploads/20240811023816/Introduction-to-Binary-Tree.webp)
+
 ### **Tujuan Praktikum**
 
 1. Memahami konsep penggunaan fungsi rekursif.
