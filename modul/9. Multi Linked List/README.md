@@ -133,7 +133,7 @@ class MultiLinkedList_1N:
         print("="*60)
 ```
 ```python
-# gunakan jika class diimport dari file terpisah
+# gunakan jika class diimport dari file terpisah. Contoh file "multi_linked_list_1N.py"
 # from multi_linked_list_1N import MultiLinkedList_1N 
 
 def main():
@@ -280,8 +280,7 @@ class MultiLinkedList_Hybrid:
 ```
 
 ```python
-# gunakan jika class diimport dari file terpisah
-# file: main_multi_linked_list_hybrid.py
+# gunakan jika class diimport dari file terpisah. contoh file "main_multi_linked_list_hybrid.py"
 # from multi_linked_list_hybrid import MultiLinkedList_Hybrid
 
 def main():
@@ -435,8 +434,7 @@ class MultiLinkedList_MN_A:
 ```
 
 ```python
-# gunakan jika class diimport dari file terpisah
-# file: main_multi_linked_list_hybrid.py
+# gunakan jika class diimport dari file terpisah. contoh file "main_multi_linked_list_hybrid.py"
 # from multi_linked_list_hybrid import MultiLinkedList_Hybrid
 
 def main():
@@ -543,8 +541,7 @@ class MultiLinkedList_MN_B:
 ```
 
 ```python
-# gunakan jika class diimport dari file terpisah
-# file: main_multi_linked_list_MN_modern.py
+# gunakan jika class diimport dari file terpisah. contoh file "main_multi_linked_list_MN_modern.py"
 # from multi_linked_list_MN_modern import MultiLinkedList_MN_B
 
 def main():
