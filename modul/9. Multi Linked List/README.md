@@ -132,6 +132,48 @@ class MultiLinkedList_1N:
         print(f"Total Parent: {self.size}")
         print("="*60)
 ```
+```python
+# gunakan jika class diimport dari file terpisah
+# from multi_linked_list_1N import MultiLinkedList_1N 
+
+def main():
+    # Membuat objek multi linked list
+    ml = MultiLinkedList_1N()
+
+    # ===== INSERT PARENT =====
+    print("\n>> Menambah Parent")
+    ml.insertParent("P1", "Parent Satu")
+    ml.insertParent("P2", "Parent Dua")
+    ml.insertParent("P3", "Parent Tiga")
+
+    # ===== INSERT CHILD (1-N) =====
+    print("\n>> Menambah Child ke masing-masing Parent")
+    ml.insertChild("P1", "C1", "Data Child 1")
+    ml.insertChild("P1", "C2", "Data Child 2")
+
+    ml.insertChild("P2", "C3", "Child untuk Parent 2")
+
+    # Parent P3 belum punya child (contoh parent kosong)
+
+    # ===== CETAK SEMUA =====
+    print("\n>> Print semua data:")
+    ml.printAll()
+
+    # ===== DELETE CHILD =====
+    print("\n>> Hapus Child C2 dari Parent P1")
+    ml.deleteChild("P1", "C2")
+    ml.printAll()
+
+    # ===== DELETE PARENT =====
+    print("\n>> Hapus Parent P2 (beserta semua Child-nya)")
+    ml.deleteParent("P2")
+    ml.printAll()
+
+if __name__ == "__main__":
+    main()
+
+```
+
 
 ---
 
