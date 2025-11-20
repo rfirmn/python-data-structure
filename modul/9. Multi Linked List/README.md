@@ -10,7 +10,7 @@ Multi Linked List adalah struktur data yang mengizinkan lebih dari satu jenis hu
 ### BENTUK I – Relasi 1-N (One-to-Many) Pure  
 Satu Parent memiliki banyak Child, satu Child hanya dimiliki oleh satu Parent.
 
-<img width="1038" height="368" alt="image" src="https://github.com/user-attachments/assets/7dbf9deb-f835-4570-b3e4-3e2b5df07b7f" />
+<img width="1038" height="368" alt="image" src="https://user-images.githubusercontent.com/13241336/36650938-af7d7db4-1ad8-11e8-8a4d-43d83672f50f.png" />
 
 ```python
 # file: multi_linked_list_1N.py
