@@ -279,6 +279,50 @@ class MultiLinkedList_Hybrid:
         print("="*70)
 ```
 
+```python
+# gunakan jika class diimport dari file terpisah
+# file: main_multi_linked_list_hybrid.py
+# from multi_linked_list_hybrid import MultiLinkedList_Hybrid
+
+def main():
+    ml = MultiLinkedList_Hybrid()
+
+    print("\n>> INSERT PARENT")
+    ml.insertParent("P1", "Parent Satu")
+    ml.insertParent("P2", "Parent Dua")
+    ml.insertParent("P3", "Parent Tiga")
+
+    print("\n>> INSERT CHILD 1-N (child langsung ke parent)")
+    ml.insertChild1N("P1", "C1", "Child1 milik P1")
+    ml.insertChild1N("P1", "C2", "Child2 milik P1")
+
+    ml.insertChild1N("P2", "C3", "Child milik P2")
+
+    # Parent P3 tidak punya child 1-N (contoh)
+
+    print("\n>> INSERT CHILD M-N (child global)")
+    ml.insertChildMN("X1", "Child X1 (global)")
+    ml.insertChildMN("X2", "Child X2 (global)")
+    ml.insertChildMN("X3", "Child X3 (global)")
+
+    print("\n>> INSERT RELASI M-N (Parent ── M:N ── Child Global)")
+    ml.insertRelasiMN("P1", "X1")
+    ml.insertRelasiMN("P1", "X2")
+
+    ml.insertRelasiMN("P2", "X1")
+    ml.insertRelasiMN("P2", "X3")
+
+    # P3 hanya contoh parent yang belum memiliki relasi M-N
+
+    print("\n>> PRINT SEMUA DATA:")
+    ml.printAll()
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
 ---
 
 ### BENTUK III-A – Relasi M-N Klasik (Dengan Node Relasi Eksplisit)
