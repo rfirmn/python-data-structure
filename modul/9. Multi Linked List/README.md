@@ -541,3 +541,57 @@ class MultiLinkedList_MN_B:
         print(f"Total Parent: {len(self.parents)} | Total Child: {len(self.children)}")
         print("="*70)
 ```
+
+```python
+# gunakan jika class diimport dari file terpisah
+# file: main_multi_linked_list_MN_modern.py
+# from multi_linked_list_MN_modern import MultiLinkedList_MN_B
+
+def main():
+    mn = MultiLinkedList_MN_B()
+
+    print("\n>> INSERT PARENTS")
+    mn.insertParent("P1", "Parent Satu")
+    mn.insertParent("P2", "Parent Dua")
+    mn.insertParent("P3", "Parent Tiga")
+
+    print("\n>> INSERT CHILDREN")
+    mn.insertChild("C1", "Child 1")
+    mn.insertChild("C2", "Child 2")
+    mn.insertChild("C3", "Child 3")
+
+    print("\n>> INSERT RELASI M-N")
+    mn.insertRelasi("P1", "C1")
+    mn.insertRelasi("P1", "C2")
+
+    mn.insertRelasi("P2", "C1")
+    mn.insertRelasi("P2", "C3")
+
+    # Parent P3 tidak memiliki relasi
+
+    print("\n>> PRINT ALL DATA")
+    mn.printAll()
+
+    print("\n>> FIND CHILDREN OF P1")
+    print(mn.findChildrenOf("P1"))
+
+    print("\n>> FIND PARENTS OF C1")
+    print(mn.findParentsOf("C1"))
+
+    print("\n>> DELETE RELATION (P1, C2)")
+    mn.deleteRelasi("P1", "C2")
+
+    print("\n>> DELETE CHILD C1 (akan hilang dari semua parent)")
+    mn.deleteChild("C1")
+
+    print("\n>> DELETE PARENT P3")
+    mn.deleteParent("P3")
+
+    print("\n>> PRINT ALL DATA (SETELAH DELETE)")
+    mn.printAll()
+
+
+if __name__ == "__main__":
+    main()
+
+```
