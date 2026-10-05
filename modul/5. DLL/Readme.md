@@ -133,8 +133,7 @@ Berikut adalah penjelasan operasi dasar yang diimplementasikan:
 - **Penjelasan**: Mengatur atribut `first` dan `last` ke `None`.
 - **Contoh Penggunaan**:
   ```python
-  L = List()
-  L.createList()  # List sekarang kosong
+  L = List() # List sekarang kosong
   ```
 
 #### b. Membuat Elemen Baru (`createElement`)
