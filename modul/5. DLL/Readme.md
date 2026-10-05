@@ -38,8 +38,7 @@ Berikut adalah implementasi struktur data untuk Double Linked List dalam Python:
 
   class List:
       def __init__(self):
-          self.first = None
-          self.last = None
+          self.createList()
 
       def createList(self):
           """Menginisialisasi list kosong."""
@@ -234,8 +233,7 @@ class Node:
 
 class List:
     def __init__(self):
-        self.first = None
-        self.last = None
+        self.createList()
 
     def createList(self):
         """Menginisialisasi list kosong."""
@@ -328,7 +326,6 @@ from list import List
 
 def main():
     L = List()
-    L.createList()
 
     # Input 10 digit NIM
     nim = []
